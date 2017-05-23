@@ -1,0 +1,9 @@
+   ITERATION STARTED: 1
+[ ADDED ]:    Anna   Bania   4.0   20
+[ ADDED ]:    Jan   Kowalski   3.0   21
+[ ADDED ]:    Marcin   Nowak   2.0   22
+[ ADDED ]:    Damian   Kruk   3.5   20
+[ ADDED ]:    Paulina   Gruszka   4.5   22
+[ ADDED ]:    Krzysztof   Trawa   3.5   23
+[ ADDED ]:    Daniel   Wojnar   4.5   22
+[ ADDED ]:    Gosia   Bien   5.0   21
