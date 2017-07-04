@@ -130,8 +130,8 @@ public class SignUpController implements Initializable, ControlScreen {
                     newUser.setGender("male");
                 }
 
-                prop.setProperty("user" + idx, newUser.getUserName());
-                prop.setProperty("user" + idx + "pass", newUser.getPassword());
+                prop.setProperty("user" + idx, userName);//newUser.getUserName());
+                prop.setProperty("user" + idx + "pass",password);// newUser.getPassword());
                 prop.store(output, null);
 
                 myController.setScreen(MyApplication.screenLogIn);

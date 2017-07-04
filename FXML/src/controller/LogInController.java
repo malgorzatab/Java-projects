@@ -40,8 +40,8 @@ public class LogInController implements Initializable, ControlScreen {
 
     @FXML
     protected void handleSignInEvent() {
-    	 myController.setScreen(MyApplication.screenMain);
-        /*ACCESS pass;
+    	// myController.setScreen(MyApplication.screenMain);
+        ACCESS pass;
         UserModel newUser = new UserModel();
         newUser.setPassword(passwordInput.getText());
         newUser.setUserName(usernameInput.getText());
@@ -65,7 +65,7 @@ public class LogInController implements Initializable, ControlScreen {
             default:
                 System.out.println("Pass exception - UserSearcher error.");
                 break;
-        }*/
+        }
         usernameInput.clear();
         passwordInput.clear();
     }

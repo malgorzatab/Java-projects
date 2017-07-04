@@ -5,5 +5,3 @@
 [ ADDED ]:    Damian   Kruk   3.5   20
 [ ADDED ]:    Paulina   Gruszka   4.5   22
 [ ADDED ]:    Krzysztof   Trawa   3.5   23
-[ ADDED ]:    Daniel   Wojnar   4.5   22
-[ ADDED ]:    Gosia   Bien   5.0   21

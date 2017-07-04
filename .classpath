@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="FXML/src"/>
+	<classpathentry kind="src" path="komunikator/client2/src"/>
+	<classpathentry kind="src" path="komunikator/server/src"/>
+	<classpathentry kind="src" path="Mastermind client-server/Mastermind/src"/>
+	<classpathentry kind="src" path="Mastermind client-server/MastermindServer/src"/>
+	<classpathentry kind="src" path="RMI/RMI_Client/src"/>
+	<classpathentry kind="src" path="RMI/RMI_Interface/src"/>
+	<classpathentry kind="src" path="RMI/RMI_Server/src"/>
+	<classpathentry kind="src" path="Zajecia6Threads/src"/>
+	<classpathentry kind="lib" path="komunikator/client2/dist/client2.jar"/>
+	<classpathentry kind="lib" path="komunikator/client2/dist/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="komunikator/server/dist/server.jar"/>
+	<classpathentry kind="lib" path="Mastermind client-server/Mastermind/dist/Mastermind.jar"/>
+	<classpathentry kind="lib" path="Mastermind client-server/MastermindServer/dist/MastermindServer.jar"/>
+	<classpathentry kind="lib" path="RMI/RMI_Client/dist/lib/RMI_Interface.jar"/>
+	<classpathentry kind="lib" path="RMI/RMI_Client/dist/RMI_Client.jar"/>
+	<classpathentry kind="lib" path="RMI/RMI_Interface/dist/RMI_Interface.jar"/>
+	<classpathentry kind="lib" path="RMI/RMI_Server/dist/lib/RMI_Interface.jar"/>
+	<classpathentry kind="lib" path="RMI/RMI_Server/dist/RMI_Server.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="FXML/bin"/>
+</classpath>
