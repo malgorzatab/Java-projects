@@ -1,66 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.cell.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.collections.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane fx:id="borderPane" maxHeight="-1.0" maxWidth="-1.0" minHeight="500.0" minWidth="700.0" onKeyPressed="#handleEscPressed" onKeyReleased="#handleEscReleased" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
-    <top>
-        <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
-            <menus>
-                <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem fx:id="logoutMenuItem" mnemonicParsing="false" onAction="#handleLogOut" text="Log out" />
-                        <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#handleClose" text="Close   ESC" />
-                    </items>
-                </Menu>
-               
-            </menus>
-        </MenuBar>
-    </top>
-    <center>
-        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-            <tabs>
-                <Tab fx:id="studentsTab" closable="false" text="Students">
-                    <content>
-                        <VBox>
-                            <children>
-                                <fx:include fx:id="tabViewControl" source="TableView.fxml" />                           
-                                <HBox spacing="10.0">
-                                    <children>
-                                        <TextField fx:id="markInput" prefWidth="100.0" promptText="Mark" />
-                                        <TextField fx:id="firstNameInput" layoutX="10.0" layoutY="10.0" prefWidth="150.0" promptText="First name" />
-                                        <TextField fx:id="lastNameInput" layoutX="159.0" layoutY="10.0" prefWidth="150.0" promptText="Last name" />
-                                        <TextField fx:id="ageInput" layoutX="159.0" layoutY="10.0" prefWidth="100.0" promptText="Age" />
-                                        <Region HBox.hgrow="ALWAYS" />
-                                        <Button fx:id="addButton" defaultButton="true" mnemonicParsing="false" onAction="#handleAddButton" text="Add" />
-                                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
-                                    </children>
-                                    <VBox.margin>
-                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                                    </VBox.margin>
-                                </HBox>
-                            </children>
-                        </VBox>
-                    </content>
-                </Tab>
-                <Tab fx:id="loggsTab" text="Loggs">
-                    <content>
-                        <AnchorPane>
-                            <children>
-                                <fx:include fx:id="textAreaControl" source="TextArea.fxml" />        
-                            </children>
+<AnchorPane prefHeight="539.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FXMLController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="804.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutX="-1.0" layoutY="25.0" prefHeight="506.0" prefWidth="804.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="studentsTab" text="Students">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="439.0" prefWidth="466.0">
+                           <children>
+                              <TableView fx:id="tableStudents" layoutX="-2.0" layoutY="-3.0" prefHeight="390.0" prefWidth="468.0">
+                                <columns>
+                                  <TableColumn fx:id="idColumn" prefWidth="129.0" text="Id" />
+                                  <TableColumn fx:id="firstNameColumn" prefWidth="125.0" text="FirsName" />
+                                    <TableColumn fx:id="lastNameColumn" prefWidth="141.0" text="Last Name" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="loadButton" layoutX="199.0" layoutY="400.0" mnemonicParsing="false" onAction="#loadStudents" text="Load Students" />
+                           </children>
                         </AnchorPane>
-                    </content>
-                </Tab>
-               
-            </tabs>
-        </TabPane>
-    </center>
-</BorderPane>
+                        <TextField fx:id="studentIdInput" layoutX="537.0" layoutY="69.0" promptText="Id" />
+                        <TextField fx:id="studentFirstNameInput" layoutX="537.0" layoutY="118.0" promptText="First Name" />
+                        <TextField fx:id="studentLastNameInput" layoutX="537.0" layoutY="165.0" promptText="Last Name" />
+                        <Button fx:id="addButton" layoutX="540.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddStudent" prefHeight="25.0" prefWidth="49.0" text="Save" />
+                        <Button fx:id="cancelButton" layoutX="619.0" layoutY="203.0" mnemonicParsing="false" onAction="#studentClearInput" text="Cancel" />
+                        <Label layoutX="578.0" layoutY="28.0" text="Add Student" />
+                        <Label layoutX="564.0" layoutY="292.0" text="Delete or Update " />
+                        <Button fx:id="studentUpdateButton" layoutX="586.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleUpdateStudent" text="Update" />
+                        <Button fx:id="studentDeleteButton" layoutX="586.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleDeleteStudent" text="Delete" />
+                        <Label fx:id="errorLabel" layoutX="477.0" layoutY="253.0" prefHeight="25.0" prefWidth="296.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="techTab" text="Techniques">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="804.0">
+                     <children>
+                        <AnchorPane prefHeight="412.0" prefWidth="477.0">
+                           <children>
+                              <TableView fx:id="tableTechnique" prefHeight="369.0" prefWidth="477.0">
+                                <columns>
+                                  <TableColumn fx:id="techIdColumn" prefWidth="70.0" text="Id" />
+                                  <TableColumn fx:id="techColumn" prefWidth="133.0" text="Technique" />
+                                    <TableColumn fx:id="coachColumn" prefWidth="126.0" text="Coach" />
+                                    <TableColumn fx:id="levelColumn" prefWidth="147.0" text="Level" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="loadTechButton" layoutX="173.0" layoutY="373.0" mnemonicParsing="false" onAction="#loadTechniques" text="Load Techniques" />
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="586.0" layoutY="37.0" text="Add Technique" />
+                        <Label layoutX="581.0" layoutY="337.0" text="Delete or Update" />
+                        <TextField fx:id="techIdInput" layoutX="552.0" layoutY="67.0" promptText="Id" />
+                        <TextField fx:id="techNameInput" layoutX="552.0" layoutY="107.0" promptText="Technique" />
+                        <TextField fx:id="techCoachInput" layoutX="552.0" layoutY="145.0" promptText="Coach" />
+                        <TextField fx:id="techLevelInput" layoutX="552.0" layoutY="188.0" promptText="Level" />
+                        <Button fx:id="addTechButton" layoutX="560.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleAddTech" text="Save" />
+                        <Button fx:id="techCancelButton" layoutX="649.0" layoutY="233.0" mnemonicParsing="false" onAction="#techClear" text="Cancel" />
+                        <Button fx:id="techUpdateButton" layoutX="599.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleUpdateTech" text="Update" />
+                        <Button fx:id="techDeleteButton" layoutX="601.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleDeleteTech" text="Delete" />
+                        <Label fx:id="techErrorLabel" layoutX="514.0" layoutY="295.0" prefHeight="17.0" prefWidth="222.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="classTab" text="Classes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="804.0">
+                           <children>
+                              <TableView fx:id="tableClasses" layoutY="-1.0" prefHeight="382.0" prefWidth="718.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="classIdColumn" prefWidth="40.0" text="Id">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="class_id" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="fnameColumn" prefWidth="117.0" text="First Name">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="first_name" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="lnameColumn" prefWidth="136.0" text="Last Name">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="last_name" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="classtechColumn" prefWidth="132.0" text="Technique">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="technique" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="classcoachColumn" prefWidth="140.0" text="Coach">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="coach" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="classlevelColumn" prefWidth="141.0" text="Level">
+                                       <cellValueFactory>
+                                          <PropertyValueFactory property="level" />
+                                       </cellValueFactory>
+                                    </TableColumn>
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="loadClassButton" layoutX="718.0" layoutY="85.0" mnemonicParsing="false" onAction="#loadClasses" prefHeight="64.0" prefWidth="84.0" text="Load Classes" />
+                              <TextField fx:id="classTechIdInput" layoutX="433.0" layoutY="401.0" promptText="Tech Id" />
+                              <TextField fx:id="classUserIdInput" layoutX="275.0" layoutY="401.0" promptText="User Id" />
+                              <TextField fx:id="classIdInput" layoutX="120.0" layoutY="401.0" prefHeight="25.0" prefWidth="135.0" promptText="Class Id" />
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="addclassBtn" layoutX="131.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleAddClass" text="Add class" />
+                        <Button fx:id="updateclassBtn" layoutX="280.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleUpdateClass" text="Update" />
+                        <Button fx:id="deleteclassBtn" layoutX="419.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleDeleteClass" text="Delete" />
+                        <Button fx:id="classcancelBtn" layoutX="576.0" layoutY="451.0" mnemonicParsing="false" onAction="#classClearInput" text="Cancel" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

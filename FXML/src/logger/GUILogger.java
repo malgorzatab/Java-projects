@@ -29,6 +29,8 @@ public class GUILogger implements Logger {
             case UNCHANGED:
                 controller.setTextArea("Status: [ UNCHANGED ]\n");
                 break;
+		default:
+			break;
         }
     }
 

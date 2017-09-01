@@ -2,11 +2,11 @@ package model;
 
 import java.util.Objects;
 
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import org.apache.commons.codec.digest.DigestUtils;
 
 public class UserModel {
 
@@ -24,17 +24,9 @@ public class UserModel {
         this.age = new SimpleIntegerProperty();
     }
 
-    public UserModel(String userName) {
-        this.userName = new SimpleStringProperty(userName);
-        this.password = new SimpleStringProperty("");
-        this.adress = new SimpleStringProperty("");
-        this.gender = new SimpleStringProperty("");
-        this.age = new SimpleIntegerProperty(0);
-    }
-
     public UserModel(String userName, String password, String adress, String gender, Integer age) {
         this.userName = new SimpleStringProperty(userName);
-        this.password = new SimpleStringProperty(DigestUtils.sha1Hex(password));
+        this.password = new SimpleStringProperty(password);
         this.adress = new SimpleStringProperty(adress);
         this.gender = new SimpleStringProperty(gender);
         this.age = new SimpleIntegerProperty(age);
@@ -90,7 +82,7 @@ public class UserModel {
     }
 
     public final void setPassword(String password) {
-        this.password.set(DigestUtils.sha1Hex(password));
+        this.password.set(password);
     }
 
     public final void setAge(int age) {

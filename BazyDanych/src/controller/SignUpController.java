@@ -1,7 +1,6 @@
 package controller;
 
 import boxes.AlertBox;
-import static controller.LogInController.closeProgram;
 import static controller.SignUpController.GENDER.FEMALE;
 import static controller.SignUpController.GENDER.MALE;
 import java.io.FileInputStream;
@@ -9,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import main.MyApplication;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -26,6 +24,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import model.UserModel;
+import test.Main;
 
 public class SignUpController implements Initializable, ControlScreen {
 
@@ -106,7 +105,7 @@ public class SignUpController implements Initializable, ControlScreen {
                 if (prop.isEmpty()) {
                     idx = 1;
                 } else {
-                    idx = (prop.size() / 2) + 1;
+                    idx = (prop.size() /*/ 2*/) + 1;
                 }
 
                 for (int i = 1; i < idx; i++) {
@@ -134,7 +133,7 @@ public class SignUpController implements Initializable, ControlScreen {
                 prop.setProperty("user" + idx + "pass", newUser.getPassword());
                 prop.store(output, null);
 
-                myController.setScreen(MyApplication.screenLogIn);
+                myController.setScreen(Main.screenLogIn);
             } else if (repeated) {
                 box.display("This username already exists! Choose diffrent one. ");
             } else {
@@ -143,6 +142,7 @@ public class SignUpController implements Initializable, ControlScreen {
 
         } catch (IOException ex) {
             System.out.println("SignUpController - IOException.");
+            ex.printStackTrace();
         } finally {
             if (output != null) {
                 try {
@@ -173,10 +173,10 @@ public class SignUpController implements Initializable, ControlScreen {
 
     @FXML
     public void handleCancel() {
-        myController.setScreen(MyApplication.screenLogIn);
+        myController.setScreen(Main.screenLogIn);
     }
 
-    public void handleEscPressed() {
+   /* public void handleEscPressed() {
         escPressed.addListener((ObservableValue<? extends Boolean> observable, Boolean werePressed, Boolean arePressed) -> {
             closeProgram();
         });
@@ -193,7 +193,7 @@ public class SignUpController implements Initializable, ControlScreen {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 escPressed.set(false);
             }
-        });
-    }
+        });*/
+   // }
 
 }

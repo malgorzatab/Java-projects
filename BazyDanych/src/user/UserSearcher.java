@@ -22,7 +22,7 @@ public class UserSearcher {
         try {
             input = new FileInputStream("userData.properties");
             prop.load(input);		//reads a property list from the input byte stream
-            amount = prop.size() / 2 + 1;
+            amount = prop.size(); // 2 + 1;
             for (int i = 1; i < amount; i++) {
                 result = prop.getProperty("user" + i, "lack"); //Searches for the property with the specified key in this property list
 

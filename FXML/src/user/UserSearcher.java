@@ -22,7 +22,7 @@ public class UserSearcher {
         try {
             input = new FileInputStream("userData.properties");
             prop.load(input);
-            amount = prop.size() / 2 + 1;
+            amount = prop.size();// / 2 + 1;		//Returns the number of keys in this hashtable
             for (int i = 1; i < amount; i++) {
                 result = prop.getProperty("user" + i, "lack");
 

@@ -106,7 +106,7 @@ public class SignUpController implements Initializable, ControlScreen {
                 if (prop.isEmpty()) {
                     idx = 1;
                 } else {
-                    idx = (prop.size() / 2) + 1;
+                    idx = (prop.size() /*/ 2*/) + 1;
                 }
 
                 for (int i = 1; i < idx; i++) {
@@ -130,8 +130,8 @@ public class SignUpController implements Initializable, ControlScreen {
                     newUser.setGender("male");
                 }
 
-                prop.setProperty("user" + idx, userName);//newUser.getUserName());
-                prop.setProperty("user" + idx + "pass",password);// newUser.getPassword());
+                prop.setProperty("user" + idx, newUser.getUserName());
+                prop.setProperty("user" + idx + "pass", newUser.getPassword());
                 prop.store(output, null);
 
                 myController.setScreen(MyApplication.screenLogIn);
@@ -143,6 +143,7 @@ public class SignUpController implements Initializable, ControlScreen {
 
         } catch (IOException ex) {
             System.out.println("SignUpController - IOException.");
+            ex.printStackTrace();
         } finally {
             if (output != null) {
                 try {

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="tableClasses" layoutX="-1.0" prefHeight="410.0" prefWidth="719.0">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="89.0" text="Id">
+               <cellValueFactory>
+                  <PropertyValueFactory property="class_id" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="fnameColumn" prefWidth="98.0" text="First Name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="first_name" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="lnameColumn" prefWidth="141.0" text="Last Name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="last_name" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="techColumn" prefWidth="132.0" text="Technique">
+               <cellValueFactory>
+                  <PropertyValueFactory property="technique" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="coachColumn" prefWidth="140.0" text="Coach">
+               <cellValueFactory>
+                  <PropertyValueFactory property="coach" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="levelColumn" prefWidth="141.0" text="Level">
+               <cellValueFactory>
+                  <PropertyValueFactory property="level" />
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <Button fx:id="loadClassButton" layoutX="301.0" layoutY="416.0" mnemonicParsing="false" onAction="#loadClasses" text="Load Classes" />
+   </children>
+</AnchorPane>

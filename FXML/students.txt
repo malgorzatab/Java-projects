@@ -5,3 +5,5 @@
 3.5;Damian;Kruk;20
 4.5;Paulina;Gruszka;22
 3.5;Krzysztof;Trawa;23
+5.0;Daniel;Wojnarski;22
+

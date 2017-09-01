@@ -1,27 +1,26 @@
 package controller;
 
 import boxes.AlertBox;
-import boxes.ConfirmBox;
-import main.MyApplication;
-import static main.MyApplication.window;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ObservableValue;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 import javafx.scene.layout.BorderPane;
 import model.UserModel;
+import test.Main;
 import user.UserSearcher;
 
 public class LogInController implements Initializable, ControlScreen {
 
-    private final AlertBox box = new AlertBox();
+	private final AlertBox box = new AlertBox();
     private ScreensController myController;
     final BooleanProperty escPressed = new SimpleBooleanProperty(false);
 
@@ -37,11 +36,13 @@ public class LogInController implements Initializable, ControlScreen {
     PasswordField passwordInput;
     @FXML
     BorderPane borderPane;
+    @FXML Button signUpButton;
+    @FXML Button signInButton;
 
     @FXML
     protected void handleSignInEvent() {
-    	 myController.setScreen(MyApplication.screenMain);
-        /*ACCESS pass;
+    	// myController.setScreen(Main.screenMain);
+        ACCESS pass;
         UserModel newUser = new UserModel();
         newUser.setPassword(passwordInput.getText());
         newUser.setUserName(usernameInput.getText());
@@ -53,7 +54,7 @@ public class LogInController implements Initializable, ControlScreen {
 
         switch (pass) {
             case GRANTED:
-                myController.setScreen(MyApplication.screenMain);
+                myController.setScreen(Main.screenMain);
                 break;
             case NOT_USER:
                 box.display("Your not the user! Sign in!");
@@ -65,14 +66,14 @@ public class LogInController implements Initializable, ControlScreen {
             default:
                 System.out.println("Pass exception - UserSearcher error.");
                 break;
-        }*/
+        }
         usernameInput.clear();
         passwordInput.clear();
     }
 
     @FXML
     protected void handleSignUpEvent() {
-        myController.setScreen(MyApplication.screenSignUp);
+        myController.setScreen(Main.screenSignUp);
     }
 
     @Override
@@ -83,21 +84,21 @@ public class LogInController implements Initializable, ControlScreen {
     public void setParentScreen(ScreensController screenParent) {
         myController = screenParent;
     }
-
+/*
     public static void closeProgram() {
         ConfirmBox box = new ConfirmBox();
         boolean answer = box.display("Closing window", "Sure you want to exit?");
         if (answer) {
             window.close();
         }
-    }
+    }*/
 
-    public void handleEscPressed() {
+   /* public void handleEscPressed() {
         escPressed.addListener((ObservableValue<? extends Boolean> observable, Boolean werePressed, Boolean arePressed) -> {
             closeProgram();
-        });
+        });*/
 
-        borderPane.getScene().setOnKeyPressed((KeyEvent ke) -> {
+     /*   borderPane.getScene().setOnKeyPressed((KeyEvent ke) -> {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 escPressed.set(true);
             }
@@ -110,6 +111,6 @@ public class LogInController implements Initializable, ControlScreen {
                 escPressed.set(false);
             }
         });
-    }
+    }*/
 
 }

@@ -92,7 +92,7 @@ public class Crawler {
                 System.out.println("Studentsparser exception");
             }
 
-            if (previousStudents == null) { //jeśli i = 1
+            if (previousStudents == null) { 
                 if (!currentStudents.isEmpty()) {
                     for (Logger l : addNewStudentListeners) {
                         for (StudentModel s : currentStudents) {
@@ -100,7 +100,7 @@ public class Crawler {
                         }
                     }
                 }
-            } else if (currentStudents.isEmpty()) { //jeśli i = 1
+            } else if (currentStudents.isEmpty()) { 
                 if (!previousStudents.isEmpty()) {
                     for (Logger l : addRemoveStudentListeners) {
                         for (StudentModel s : previousStudents) {
@@ -109,7 +109,7 @@ public class Crawler {
                     }
                 }
             } else if (previousStudents.size() > currentStudents.size()) {
-                //usunięto
+                
                 handler = new StudentsListener();
                 List<StudentModel> st = handler.removed(previousStudents, currentStudents);
                 for (StudentModel s : st) {

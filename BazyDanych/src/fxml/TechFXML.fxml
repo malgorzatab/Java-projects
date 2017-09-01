@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="416.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FXMLController">
+   <children>
+      <TableView fx:id="tableTechnique" prefHeight="377.0" prefWidth="472.0">
+        <columns>
+          <TableColumn fx:id="techIdColumn" prefWidth="64.0" text="Id" />
+          <TableColumn fx:id="techColumn" prefWidth="130.0" text="Technique" />
+            <TableColumn fx:id="coachColumn" prefWidth="137.0" text="Coach" />
+            <TableColumn fx:id="levelColumn" prefWidth="140.0" text="Level" />
+        </columns>
+      </TableView>
+      <Button fx:id="loadTechButton" layoutX="184.0" layoutY="383.0" mnemonicParsing="false" onAction="#loadTechniques" text="Load Techniques" />
+   </children>
+</AnchorPane>

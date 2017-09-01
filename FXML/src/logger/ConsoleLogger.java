@@ -1,11 +1,11 @@
 package logger;
 
 import crawler.Crawler.STATUS;
-import controller.MainScreenController;
 import model.StudentModel;
 
 public class ConsoleLogger implements Logger {
-
+	  public ConsoleLogger() {}
+	  
     @Override
     public void log(STATUS status, StudentModel student) {
         switch (status) {
@@ -15,6 +15,8 @@ public class ConsoleLogger implements Logger {
             case REMOVED:
                 System.out.println("[  REMOVED  ]: " + student);
                 break;
+		default:
+			break;
         }
 
     }
@@ -28,6 +30,8 @@ public class ConsoleLogger implements Logger {
             case I_COMPLETED:
                 System.out.println("   ITERATION COMPLETED: " + iteration);
                 break;
+		default:
+			break;
         }
     }
 

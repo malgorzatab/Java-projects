@@ -2,6 +2,8 @@
 /client/
 /client_player/
 /controller/
+/fxml/
+/images/
 /main/
 /message_communicator/
 /message_game/
