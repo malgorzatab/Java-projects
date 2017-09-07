@@ -35,8 +35,8 @@ public class Server implements Runnable {
         try {
             logger(String.format("Listening for connections on \n---- HOST: %s  ---- PORT: %d...", address.getHostName(), address.getPort()));
 
-            while (true) {
-                selector.select();
+            while (true) {						//Returns:The number of keys, possibly zero, whose ready-operation sets were updated
+                selector.select();			//Selects a set of keys whose corresponding channels are ready for I/O operations.
                 Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
 
                 while (keys.hasNext()) {

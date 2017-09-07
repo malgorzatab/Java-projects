@@ -25,8 +25,8 @@ public class Main {
         Registry registry = LocateRegistry.createRegistry(PORT); // uruchomienie rejestru dla rmi na wybranym porcie
 
         try {
-            RMICrawlerProxy crawler = new RMICrawlerProxy(); // tworzenie obiektu  na serwerze
-            //RMICrawlerProxy stub = (RMICrawlerProxy) UnicastRemoteObject.exportObject(crawler, 0); //namiastka
+        	RMICrawlerProxy crawler = new RMICrawlerProxy(); // tworzenie obiektu  na serwerze
+           // RMICrawlerProxy stub = (RMICrawlerProxy) UnicastRemoteObject.exportObject(crawler, 0); //namiastka
             registry.bind(name, crawler); // bindowanie obiektu 
             System.out.println("Server ready. \n");
 

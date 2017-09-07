@@ -6,3 +6,6 @@
 [ ADDED ]:    Paulina   Gruszka   4.5   22
 [ ADDED ]:    Krzysztof   Trawa   3.5   23
 [ ADDED ]:    Daniel   Wojnarski   5.0   22
+[ ADDED ]:    Gosia   Bien   5.0   21
+[ ADDED ]:    test   test   2.0   23
+[ ADDED ]:    test2   test2   3.0   23

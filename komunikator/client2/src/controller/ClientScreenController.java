@@ -100,7 +100,7 @@ public class ClientScreenController implements Initializable, ControlScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Random randomizer = new Random();
+      //  Random randomizer = new Random();
         this.clientName = "";
         try {
             client = new Client(HOST, PORT, this, this.clientName);
@@ -129,7 +129,7 @@ public class ClientScreenController implements Initializable, ControlScreen {
 
     public void closeProgram() {
         ConfirmBox box = new ConfirmBox();
-        boolean answer = box.display("Closing window", "Sure you want to exit?");
+        boolean answer = box.display("Closing window", "Do you want to exit?");
         if (answer) {
             Stage window = (Stage) vBox.getScene().getWindow();
             client.disconnect(client.getSocket());

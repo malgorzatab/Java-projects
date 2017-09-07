@@ -32,8 +32,7 @@ public class Crawler {
     }
 
     public Crawler(MainScreenController controller) {
-        this.control = controller;
-        //previousStudents = null;
+        this.control = controller;   
         currentStudents = new ArrayList<>();
     }
 
@@ -79,14 +78,17 @@ public class Crawler {
 
     public void run() {
         StudentsListener handler;
-        File f = new File(adress);
-
-        for (int i = 1;; ++i) {
+       
+        int i=1;
+       // for (int i = 1;; ++i) {
+        while(true){
             for (Logger l : iterationStartedListeners) {
                 l.log(I_STARTED, i);
             }
-
-            try {
+            File f = new File(adress);
+            currentStudents = new ArrayList<>();
+            try { 
+            	
                 currentStudents = StudentsParser.parse(f);
             } catch (IOException ex) {
                 System.out.println("Studentsparser exception");
@@ -141,7 +143,7 @@ public class Crawler {
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
-
+            i++;
             for (Logger l : iterationComplitedListeners) {
                 l.log(I_COMPLETED, i);
             }

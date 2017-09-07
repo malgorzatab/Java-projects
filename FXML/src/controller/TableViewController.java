@@ -16,7 +16,7 @@ import javafx.scene.control.TableView;
 public class TableViewController implements Initializable {
 
     @FXML
-    private TableView tableView;
+    private TableView<StudentModel> tableView;
     private StudentsHandling model;
 
     @Override

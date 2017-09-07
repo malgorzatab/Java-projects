@@ -10,7 +10,11 @@ import java.rmi.server.UnicastRemoteObject;
 //UnicastRemoteObject -> Used for exporting a remote object with JRMP and obtaining a stub that communicates to the remote object. 
 public class RMICrawlerProxy extends UnicastRemoteObject implements RMICrawlerProxyInterface, Serializable {
 
-    private Crawler crawler;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Crawler crawler;
 
     public RMICrawlerProxy() throws RemoteException {
             crawler = new Crawler();
@@ -76,5 +80,5 @@ public class RMICrawlerProxy extends UnicastRemoteObject implements RMICrawlerPr
             crawler.run();
     }
 
-}//class
+}
 

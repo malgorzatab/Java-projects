@@ -2,6 +2,7 @@ package controller;
 
 import boxes.AboutBox;
 
+
 import boxes.AlertBox;
 import static controller.LogInController.closeProgram;
 import crawler.Crawler;
@@ -31,10 +32,12 @@ import logger.TextLogger;
 import logger.GUILogger;
 import logger.ConsoleLogger;
 import logger.SerializedLogger;
+import crawler.Crawler.STATUS;
 
 public class MainScreenController implements Initializable, ControlScreen {
 
-    private final String TEXTADRESS = "textLoggs.txt";
+
+	private final String TEXTADRESS = "textLoggs.txt";
     private final String COMPRESSEDADRESS = "compressedLoggs.zip";
     private final String SERIALIZEDADRESS = "serializedLoggs.bin";
     private final String BINARYADRESS = "binaryLoggs.bin";
@@ -69,6 +72,8 @@ public class MainScreenController implements Initializable, ControlScreen {
     
     private final String adress = "students.txt";
 
+    Crawler crawler = new Crawler(this);
+    
     public MainScreenController() {
     }
 
@@ -79,7 +84,7 @@ public class MainScreenController implements Initializable, ControlScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Crawler crawler = new Crawler(this);
+        
         for (Logger l : loggers) {
             crawler.addNewStudentListener(l);
             crawler.addRemoveStudentListener(l);
@@ -88,6 +93,7 @@ public class MainScreenController implements Initializable, ControlScreen {
             crawler.addIterationComplitedListener(l);
         }
 
+       
         Task<Void> task = new Task<Void>() {
             @Override
             public Void call() throws Exception {
@@ -135,7 +141,11 @@ public class MainScreenController implements Initializable, ControlScreen {
         } else {
             StudentModel s = new StudentModel(Double.parseDouble(mark), name, lastName, Integer.parseInt(age));
             this.tabViewControlController.addInputStudent(adress, model, s);
+            this.textAreaControlController.setTextArea("Status: [ ADDED ]: " + s.toString() + "\n");  
+            
+       
         }
+        
         markInput.clear();
         firstNameInput.clear();
         lastNameInput.clear();
@@ -146,6 +156,7 @@ public class MainScreenController implements Initializable, ControlScreen {
     @FXML
     public void handleDeleteButton() {
         this.tabViewControlController.deleteSelectedStudent(adress, model);
+      
     }
 
     public void loadTableView() {

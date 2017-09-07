@@ -76,29 +76,28 @@ public class Crawler implements Serializable {
     public void run() throws RemoteException {
         int i = 1;
         StudentsListener handler;
-        File f = new File(adress);
+       
         while (true) {
             for (Logger l : iterationStartedListeners) {
                 l.log(I_STARTED, i);
             }
-
+            File f = new File(adress);
             currentStudents = new ArrayList<>();
             try {
                 currentStudents = StudentsParser.parse(f);
             } catch (IOException ex) {
             }
             
-            System.out.println("1");
-            if (previousStudents == null) { //jeśli i = 1
+            ;
+            if (previousStudents == null) { // i = 1
                 if (!currentStudents.isEmpty()) {
                     for (Logger l : addNewStudentListeners) {
-                        for (Student s : currentStudents) {
-                            System.out.println("2");
-                            l.log(ADDED, s);
+                        for (Student s : currentStudents) {                          
+                            l.log(ADDED, s);                           
                         }
                     }
                 }
-            } else if (currentStudents.isEmpty()) { //jeśli i = 1
+            } else if (currentStudents.isEmpty()) { //i=1
                 if (!previousStudents.isEmpty()) {
                     for (Logger l : addRemoveStudentListeners) {
                         for (Student s : previousStudents) {
@@ -107,7 +106,7 @@ public class Crawler implements Serializable {
                     }
                 }
             } else if (previousStudents.size() > currentStudents.size()) {
-                //usunięto
+                //usunieto
                 handler = new StudentsListener();
                 List<Student> st = handler.removed(previousStudents, currentStudents);
                 for (Student s : st) {
@@ -143,9 +142,9 @@ public class Crawler implements Serializable {
                 l.log(I_COMPLETED, i);
             }
 
-            i++; //iteracja pętli
+            i++; 
         }
     }
 
-}//class
+}
 

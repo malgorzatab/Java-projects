@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="client2/src"/>
+	<classpathentry kind="src" path="server/src"/>
+	<classpathentry kind="lib" path="client2/dist/client2.jar"/>
+	<classpathentry kind="lib" path="client2/dist/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="server/dist/server.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="server/build/classes"/>
+</classpath>

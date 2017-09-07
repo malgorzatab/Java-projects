@@ -2,21 +2,24 @@ package logger;
 
 import crawler.Crawler.STATUS;
 import controller.MainScreenController;
+import controller.TextAreaController;
 import model.StudentModel;
 
 public class GUILogger implements Logger {
 
     private MainScreenController controller;
+   
 
-    public GUILogger(MainScreenController control) {
-        this.controller = control;
+ 
+
+    public GUILogger (MainScreenController mainScreenController){
+    	this.controller = mainScreenController;
     }
-
     @Override
     public void log(STATUS status, StudentModel student) {
 
         switch (status) {
-            case ADDED:
+            case ADDED:           
                 controller.setTextArea("Status: [ ADDED ]: " + student + "\n");
                 controller.addRow(student);
                 controller.updateChartAdd(student.getMark());

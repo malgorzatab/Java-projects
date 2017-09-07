@@ -7,3 +7,5 @@
 3.5;Krzysztof;Trawa;23
 5.0;Daniel;Wojnarski;22
 
+5.0;Gosia;Bien;21
+2.0;test;test;23

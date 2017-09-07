@@ -1,5 +1,4 @@
-﻿
-4.0;Anna;Bania;20
+﻿4.0;Anna;Bania;20
 3.0;Jan;Kowalski;21
 2.0;Marcin;Nowak;22
 3.5;Damian;Kruk;20
@@ -7,5 +6,4 @@
 3.5;Krzysztof;Trawa;23
 4.5;Daniel;Wojnar;22
 5.0;Gosia;Bien;21
-4.0;Gosia;Bien;21
-5.0;te;st;21
+

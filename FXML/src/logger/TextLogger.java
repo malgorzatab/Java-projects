@@ -38,6 +38,8 @@ public class TextLogger implements Logger, Closeable {
                 case REMOVED:
                     fw.write("[ REMOVED ]: " + student + newLine);
                     break;
+			default:
+				break;
             }
         } catch (IOException e) {
             System.out.println("IOException.");
@@ -56,6 +58,8 @@ public class TextLogger implements Logger, Closeable {
                 case I_COMPLETED:
                     fw.write("   ITERATION COMPLETED: " + iteration + newLine);
                     break;
+			default:
+				break;
             }
         } catch (IOException e) {
             System.out.println("IOException.");

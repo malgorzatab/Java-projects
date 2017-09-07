@@ -17,10 +17,10 @@ import javafx.scene.control.TableView;
 public class TableViewController implements Initializable {
 
     @FXML private TableView<Student> tableView;
-    @FXML private TableColumn<?, ?> markColumn;
-    @FXML private TableColumn<?, ?> ageColumn;
-    @FXML private TableColumn<?, ?> firstNameColumn;
-    @FXML private TableColumn<?, ?> lastNameColumn;
+    @FXML private TableColumn<Student, String> markColumn;
+    @FXML private TableColumn<Student, String> ageColumn;
+    @FXML private TableColumn<Student, String> firstNameColumn;
+    @FXML private TableColumn<Student, String> lastNameColumn;
     private StudentsHandling model;
 
     @Override

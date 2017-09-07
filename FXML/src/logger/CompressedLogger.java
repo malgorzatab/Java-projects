@@ -2,17 +2,22 @@ package logger;
 
 import controller.MainScreenController;
 
+
 import java.io.Closeable;
 import java.io.IOException;
+import java.nio.file.FileSystem;
+
 import model.StudentModel;
 import crawler.Crawler.STATUS;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.FileUtils;
@@ -20,7 +25,8 @@ import org.apache.commons.io.filefilter.TrueFileFilter;
 
 public class CompressedLogger implements Logger, Closeable {
 
-    private FileOutputStream fos;
+    private FileOutputStream fos;					//A file output stream is an output stream for writing data to a File 
+    private ZipOutputStream zps;
     private final File dir;
     private final File zip;
     private final String adress;
@@ -32,6 +38,7 @@ public class CompressedLogger implements Logger, Closeable {
         this.adress = adress;
         dir = new File("compressedLoggerDir");
         zip = new File(this.adress);
+     
 
         if (!dir.exists() || !dir.isDirectory()) {
             dir.mkdir();
@@ -41,8 +48,9 @@ public class CompressedLogger implements Logger, Closeable {
     @Override
     public void log(STATUS status, StudentModel student) {
         int idx = 0;
-        try (ZipOutputStream outs = new ZipOutputStream(fos = new FileOutputStream(zip));) {
-
+    //    try (ZipOutputStream outs = new ZipOutputStream(fos = new FileOutputStream(zip));) {
+        try{
+			ZipOutputStream outs = new ZipOutputStream(fos = new FileOutputStream(zip));
             Collection<File> files = FileUtils.listFiles(dir, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);
             idx = files.size() + 1;
 
@@ -52,7 +60,10 @@ public class CompressedLogger implements Logger, Closeable {
             textLogger = new TextLogger(dir + "/" + fileName);
             textLogger.log(status, student);
 
-            for (File srcFile : files) {
+
+         
+                
+           for (File srcFile : files) {
                 String filepath = srcFile.getAbsolutePath();
                 String dirpath = dir.getAbsolutePath();
                 String entryName = filepath.substring(dirpath.length() + 1)
@@ -61,6 +72,7 @@ public class CompressedLogger implements Logger, Closeable {
                 int bytes_read;
                 ZipEntry zipEntry = new ZipEntry(entryName);
                 zipEntry.setTime(srcFile.lastModified());
+                
                 try (FileInputStream ins = new FileInputStream(srcFile)) {
                     outs.putNextEntry(zipEntry);
                     while ((bytes_read = ins.read(buffer)) != -1) {
@@ -72,20 +84,25 @@ public class CompressedLogger implements Logger, Closeable {
         } catch (IOException e) {
             System.out.println("Unable to compress zip file:" + zip);
         }
+        
+          
     }
 
-    @Override
-    public void log(STATUS status, int iteration) {
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 
-    }
+	@Override
+	public void log(STATUS status, int iteracja) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void log(STATUS status) {
-    }
-
-    @Override
-    public void close() throws IOException {
-
-    }
-
+	@Override
+	public void log(STATUS status) {
+		// TODO Auto-generated method stub
+		
+	}
 }

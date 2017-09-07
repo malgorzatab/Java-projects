@@ -141,7 +141,7 @@ public class SignUpController implements Initializable, ControlScreen {
                         prop.setProperty("user" + idx + "pass", newUser.getPassword());
                         prop.store(output, null);
 
-                        box.display("Registration was completed successfully. You have been registered. ");
+                        box.display(" You have been registered. ");
                         FXMLLoader loader = myController.setScreen(MainScreen.screenLogIn);
                         LogInController clientControl = loader.getController();
                         clientControl.setRegistered(userName);

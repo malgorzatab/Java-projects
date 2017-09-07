@@ -10,7 +10,11 @@ import student.Student;
 
 public class GUILogger extends UnicastRemoteObject implements Logger {
 
-    private Controller controller;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Controller controller;
 
     public GUILogger(MainScreenController control) throws RemoteException{
         super();
@@ -36,6 +40,8 @@ public class GUILogger extends UnicastRemoteObject implements Logger {
                 case UNCHANGED:
                     controller.setTextArea("Status:  [UNCHANGED]  \n");
                     break;
+			default:
+				break;
             }
         } catch (RemoteException ex) {
             System.out.println("\nRemoteException was thrown.");

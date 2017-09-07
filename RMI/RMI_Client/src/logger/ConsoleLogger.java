@@ -9,7 +9,12 @@ import student.Student;
 
 public class ConsoleLogger extends UnicastRemoteObject implements Logger {
 
-    public ConsoleLogger() throws RemoteException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ConsoleLogger() throws RemoteException {
         super();
     }
 
@@ -22,6 +27,8 @@ public class ConsoleLogger extends UnicastRemoteObject implements Logger {
             case REMOVED:
                 System.out.println("[  REMOVED  ]: " + (Student) student);
                 break;
+		default:
+			break;
         }
     }
 
@@ -34,6 +41,8 @@ public class ConsoleLogger extends UnicastRemoteObject implements Logger {
             case I_COMPLETED:
                 System.out.println("[  ITERATION COMPLETED  ]: " + iteration);
                 break;
+		default:
+			break;
         }
     }
 
