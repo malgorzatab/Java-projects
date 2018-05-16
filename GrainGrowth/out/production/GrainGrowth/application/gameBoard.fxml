@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import board.BoardGrid?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GameController">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <items>
+                <Button fx:id="startButton" mnemonicParsing="false" onAction="#startAction" text="Start" />
+                <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stopAction" text="Stop" />
+                <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearAction" text="Clear" />
+                <Button fx:id="sizeButton" mnemonicParsing="false" onAction="#resizeBoard" text="Resize" />
+                <Label text="X">
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                </Label>
+                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="27.0" fx:id="xField">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </TextField>
+                <Label text="Y">
+                    <padding>
+                        <Insets left="25.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="yField" prefHeight="25.0" prefWidth="27.0" />
+                <Label text="R">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                </Label>
+                <TextField id="xField" fx:id="rField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="27.0">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </TextField>
+                <Label text="N">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                </Label>
+                <TextField fx:id="nField" prefHeight="25.0" prefWidth="27.0" />
+                <CheckBox fx:id="PBCbox" alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#boundaryAction" prefHeight="17.0" prefWidth="49.0" text="PBC" />
+            </items>
+        </ToolBar>
+        <ScrollPane prefHeight="400.0" prefWidth="500.0">
+            <content>
+                <BoardGrid fx:id="board" />
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>
