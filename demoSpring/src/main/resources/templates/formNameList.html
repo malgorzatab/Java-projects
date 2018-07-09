@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Forms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+<table>
+    <tr>
+        <td>Id</td>
+        <td>From Name</td>
+        <td>Version</td>
+        <td>Atrributes</td>
+    </tr>
+    <tr th:each="list :${formList}">
+        <td th:text="${list?.formID}">ID</td>
+        <td th:text="${list?.formName}">Name</td>
+        <td th:text="${list?.version}">version</td>
+          <td th:each="attr :${list.fields}">
+               <ul class="attr">
+               <li th:text="${attr?.question}"></li>
+               <li th:text="${attr?.answer}"> </li>
+                </ul>
+        </tr>
+
+</table>
+
+</div>
+</body>
+</html>
