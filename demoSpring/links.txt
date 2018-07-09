@@ -1,0 +1,9 @@
+https://medium.com/@grokwich/spring-boot-thymeleaf-html-form-handling-762ef0d51327
+
+https://spring.io/guides/gs/handling-form-submission/
+
+http://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application
+
+https://auth0.com/blog/automatically-mapping-dto-to-entity-on-spring-boot-apis/
+
+https://spring.io/projects
